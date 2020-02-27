@@ -1,0 +1,53 @@
+<ion-modal-view>
+  <ion-content class="padding" ng-controller="UsersCtrl">
+    <h5>Update User</h5>
+    <div class="list">
+    <form novalidate="novalidate" ng-submit="updateuser(user)" name="user">
+      <input ng-model="info.id" type="hidden">
+      <input ng-model="info.likes" type="hidden">
+      <input ng-model="info.dislikes" type="hidden">
+      <label class="item item-input">
+        <span class="input-label">First Name</span>
+        <input ng-model="info.fname" type="text" required="required">
+        <i class="icon ion-alert-circled error"></i>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Last Name</span>
+        <input ng-model="info.lname" type="text" required="required">
+        <i class="icon ion-alert-circled error"></i>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Email</span>
+        <input ng-model="info.email" type="email" required="required">
+        <i class="icon ion-alert-circled error"></i>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Address</span>
+        <input ng-model="info.address" type="text" required="required">
+        <i class="icon ion-alert-circled error"></i>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Phone</span>
+        <input ng-model="info.phone" type="tel" required="required">
+        <i class="icon ion-alert-circled error"></i>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Motto</span>
+        <input ng-model="info.motto" type="text" required="required">
+        <i class="icon ion-alert-circled error"></i>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Avatar</span>
+        <!--select ng-model="avatar" ng-options="avatar.pic as avatar.name for avatar in avatars"></select-->
+        <select ng-model="avatar">
+          <option value="{{avatar.pic}}" ng-selected="avatar.pic==info.avatar" ng-repeat="avatar in avatars">{{avatar.name}}</option>
+        </select>
+      </label>
+      <div class="row">
+        <div class="col"><button class="button button-full button-positive">Update</button></div>
+        <div class="col"><a class="button button-full button-assertive" ng-click="close(updatemodal)">Cancel</a></div>
+      </div>
+      </form>
+    </div>    
+  </ion-content>
+</ion-modal-view>

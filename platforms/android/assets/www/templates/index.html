@@ -1,0 +1,33 @@
+<ion-view view-title="SP TEAM" ng-controller="IndexCtrl">
+ 
+  	<div class="float-button">
+	  <span class="height-fix">
+	    <a ng-click="insertmodal.show()" class="content">
+	      <i class="ion-plus-round"> </i>
+	    </a>
+	  </span>
+	</div>
+  <ion-content>
+  	<ion-refresher on-refresh="doRefresh()"></ion-refresher>
+  	<p class="padding" ng-show="!users.length">No users found!</p>
+    <div class="list card" ng-repeat="user in users | orderBy:'-id'">
+	  <div class="item item-avatar">
+	    <img src="{{imgpath}}{{user.avatar}}">
+	    <a class="content"ng-click="UpdateModal(user.id,$index)">EDIT <i class="ion-edit"></i></a>
+	    <a class="content"ng-click="confirm(user.id,$index)">DELETE <i class="ion-trash-a"></i></a>	
+	    <h2>{{user.fname}} {{user.lname}}</h2>
+	    <p>{{user.phone}}</p>
+	    <p>{{user.email}}</p>
+	    <p>{{user.address}}</p>
+	  </div>
+	  <div class="item item-body">
+	    <img class="full-image" src="{{imgpath}}/{{user.avatar}}">
+	    <p>{{user.motto}}</p>
+	    <p>
+	      <a href="javascript:;" class="subdued" ng-click="like(user.id,user.likes,$index)">{{users[$index].likes}} <i class="ion-thumbsup"></i></a>
+	      <a href="javascript:;" class="subdued" ng-click="dislike(user.id,user.dislikes,$index)">{{users[$index].dislikes}} <i class="ion-thumbsdown"></i></a>
+	    </p>
+	  </div>
+	</div>
+  </ion-content>
+</ion-view>

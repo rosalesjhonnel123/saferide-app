@@ -1,0 +1,49 @@
+<ion-modal-view>
+  <ion-content class="padding" ng-controller="UsersCtrl">
+    <h5>Add User</h5>
+    <div class="list">
+    <form novalidate="novalidate" ng-submit="createuser(user)" name="user">
+      <label class="item item-input">
+        <span class="input-label">First Name</span>
+        <input ng-model="firstName" type="text" required="required">
+        <i class="icon ion-alert-circled error"></i>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Last Name</span>
+        <input ng-model="lastName" type="text" required="required">
+        <i class="icon ion-alert-circled error"></i>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Email</span>
+        <input ng-model="email" type="email" required="required">
+        <i class="icon ion-alert-circled error"></i>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Address</span>
+        <input ng-model="address" type="text" required="required">
+        <i class="icon ion-alert-circled error"></i>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Phone</span>
+        <input ng-model="phone" type="tel" required="required">
+        <i class="icon ion-alert-circled error"></i>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Motto</span>
+        <input ng-model="motto" type="text" required="required">
+        <i class="icon ion-alert-circled error"></i>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Avatar</span>
+        <select ng-model="avatar">
+          <option value="{{avatar.pic}}" ng-repeat="avatar in avatars">{{avatar.name}}</option>
+        </select>
+      </label>
+      <div class="row">
+        <div class="col"><button class="button button-full button-balanced">Submit</button></div>
+        <div class="col"><a class="button button-full button-assertive" ng-click="close(insertmodal)">Cancel</a></div>
+      </div>
+      </form>
+    </div>    
+  </ion-content>
+</ion-modal-view>
